@@ -1,0 +1,68 @@
+.packages-page { min-height: 100vh; }
+
+.packages-hero {
+  position: relative;
+  padding: 140px 0 80px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.hero-particles { position: absolute; inset: 0; pointer-events: none; }
+.particle {
+  position: absolute;
+  width: 4px; height: 4px;
+  border-radius: 50%;
+  background: rgba(14,165,233,0.4);
+  animation: float-particle 8s infinite ease-in-out;
+  top: calc(var(--i) * 8%);
+  left: calc(var(--i) * 8%);
+  animation-delay: calc(var(--i) * 0.6s);
+}
+@keyframes float-particle {
+  0%, 100% { transform: translateY(0) scale(1); opacity: 0.4; }
+  50% { transform: translateY(-30px) scale(1.5); opacity: 0.8; }
+}
+
+.packages-hero-content { position: relative; z-index: 1; }
+.page-icon { font-size: 3.5rem; display: block; margin-bottom: 1rem; }
+.page-title {
+  font-size: 3rem; font-weight: 800; color: white;
+  background: linear-gradient(135deg, #fff, #94a3b8);
+  -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+  margin-bottom: 1rem;
+}
+.page-subtitle { color: var(--text-muted); font-size: 1.1rem; max-width: 600px; margin: 0 auto 2.5rem; line-height: 1.7; }
+
+.page-stats {
+  display: flex; align-items: center; justify-content: center;
+  gap: 2rem; flex-wrap: wrap;
+}
+.stat { text-align: center; }
+.stat span { font-size: 2rem; font-weight: 800; color: var(--primary); display: block; }
+.stat p { color: var(--text-muted); font-size: 0.9rem; margin: 0; }
+.stat-divider { width: 1px; height: 40px; background: rgba(255,255,255,0.15); }
+
+.packages-grid-section { padding: 4rem 0; background: var(--bg-color); }
+.packages-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(340px, 1fr));
+  gap: 2rem;
+}
+
+.cta-strip {
+  background: linear-gradient(135deg, rgba(14,165,233,0.15), rgba(249,115,22,0.1));
+  border-top: 1px solid rgba(14,165,233,0.2);
+  padding: 3rem 0;
+}
+.cta-strip-inner {
+  display: flex; align-items: center;
+  justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+}
+.cta-strip h2 { font-size: 1.5rem; font-weight: 700; color: white; margin-bottom: 0.5rem; }
+.cta-strip p { color: var(--text-muted); margin: 0; }
+
+@media (max-width: 768px) {
+  .page-title { font-size: 2rem; }
+  .packages-grid { grid-template-columns: 1fr; }
+  .cta-strip-inner { text-align: center; justify-content: center; }
+}

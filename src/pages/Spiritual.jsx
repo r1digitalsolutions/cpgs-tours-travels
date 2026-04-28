@@ -1,12 +1,13 @@
 import PackagesPage from './PackagesPage';
 import { spiritualPackages } from '../data/packagesData';
+import { Sparkles } from 'lucide-react';
 
 const Spiritual = () => (
   <PackagesPage
     title="Spiritual & Pilgrimage Tours"
     subtitle="Embark on a sacred journey of faith and devotion. From Char Dham to Vaishno Devi — experience divine blessings with our guided yatras."
     packages={spiritualPackages}
-    icon="🕉️"
+    icon={<Sparkles size={48} color="var(--primary)" />}
     heroBg="#1a0a2a"
   />
 );

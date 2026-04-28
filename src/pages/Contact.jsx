@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { motion } from 'framer-motion';
-import { Phone, Mail, MapPin, Send, Clock } from 'lucide-react';
+import { Phone, Mail, MapPin, Send, Clock, CheckCircle } from 'lucide-react';
 import './Contact.css';
 
 const Contact = () => {
@@ -14,8 +14,8 @@ const Contact = () => {
     <div className="contact-page">
       <div className="contact-hero">
         <div className="container">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <span className="page-icon">📞</span>
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <Phone size={48} color="var(--primary)" style={{ marginBottom: '1rem' }} />
             <h1 className="page-title">Get In Touch</h1>
             <p className="page-subtitle">Ready to plan your dream trip? Our travel experts are just a message away.</p>
           </motion.div>
@@ -68,7 +68,9 @@ const Contact = () => {
           <motion.div className="contact-form-wrap" initial={{ opacity:0, x:30 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:0.6 }}>
             {submitted ? (
               <div className="form-success">
-                <div className="success-icon">✅</div>
+                <div className="success-icon" style={{ display: 'flex', justifyContent: 'center', marginBottom: '1rem' }}>
+                  <CheckCircle size={48} color="#22c55e" />
+                </div>
                 <h3>Message Sent!</h3>
                 <p>Thank you for reaching out. We'll contact you within 24 hours to discuss your travel plans.</p>
                 <button className="btn btn-primary" onClick={() => setSubmitted(false)}>Send Another</button>

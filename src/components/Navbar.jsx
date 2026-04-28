@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { Menu, X, Plane, ChevronDown } from 'lucide-react';
+import { Menu, X, Plane, ChevronDown, Globe, Map, Sparkles, HelpCircle, Phone } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Navbar.css';
 
@@ -16,10 +16,10 @@ const Navbar = () => {
   }, []);
 
   const packages = [
-    { name: '🌍 International', path: '/international' },
-    { name: '🏔️ Domestic', path: '/domestic' },
-    { name: '🕉️ Spiritual', path: '/spiritual' },
-    { name: '❓ FAQ & Group Tours', path: '/faq' },
+    { name: 'International', path: '/international', icon: <Globe size={16} /> },
+    { name: 'Domestic', path: '/domestic', icon: <Map size={16} /> },
+    { name: 'Spiritual', path: '/spiritual', icon: <Sparkles size={16} /> },
+    { name: 'FAQ & Group Tours', path: '/faq', icon: <HelpCircle size={16} /> },
   ];
 
   const closeMobile = () => setMobileMenuOpen(false);
@@ -41,7 +41,9 @@ const Navbar = () => {
               {packagesOpen && (
                 <motion.div className="dropdown glass" initial={{ opacity:0, y:8 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0, y:8 }} transition={{ duration:0.2 }}>
                   {packages.map((p, i) => (
-                    <NavLink key={i} to={p.path} className="dropdown-item" onClick={() => setPackagesOpen(false)}>{p.name}</NavLink>
+                    <NavLink key={i} to={p.path} className="dropdown-item" onClick={() => setPackagesOpen(false)}>
+                      <span className="dropdown-icon">{p.icon}</span> {p.name}
+                    </NavLink>
                   ))}
                 </motion.div>
               )}
@@ -62,11 +64,11 @@ const Navbar = () => {
         {mobileMenuOpen && (
           <motion.div className="mobile-menu glass" initial={{ opacity:0, height:0 }} animate={{ opacity:1, height:'auto' }} exit={{ opacity:0, height:0 }}>
             <NavLink to="/" className="mobile-link" onClick={closeMobile}>Home</NavLink>
-            <NavLink to="/international" className="mobile-link" onClick={closeMobile}>🌍 International Packages</NavLink>
-            <NavLink to="/domestic" className="mobile-link" onClick={closeMobile}>🏔️ Domestic Packages</NavLink>
-            <NavLink to="/spiritual" className="mobile-link" onClick={closeMobile}>🕉️ Spiritual Tours</NavLink>
-            <NavLink to="/faq" className="mobile-link" onClick={closeMobile}>❓ FAQ & Group Tours</NavLink>
-            <NavLink to="/contact" className="mobile-link" onClick={closeMobile}>📞 Contact Us</NavLink>
+            <NavLink to="/international" className="mobile-link" onClick={closeMobile}><Globe size={18} className="mobile-icon" /> International Packages</NavLink>
+            <NavLink to="/domestic" className="mobile-link" onClick={closeMobile}><Map size={18} className="mobile-icon" /> Domestic Packages</NavLink>
+            <NavLink to="/spiritual" className="mobile-link" onClick={closeMobile}><Sparkles size={18} className="mobile-icon" /> Spiritual Tours</NavLink>
+            <NavLink to="/faq" className="mobile-link" onClick={closeMobile}><HelpCircle size={18} className="mobile-icon" /> FAQ & Group Tours</NavLink>
+            <NavLink to="/contact" className="mobile-link" onClick={closeMobile}><Phone size={18} className="mobile-icon" /> Contact Us</NavLink>
             <Link to="/contact" className="btn btn-primary w-full mt-4" onClick={closeMobile}>Book Now</Link>
           </motion.div>
         )}

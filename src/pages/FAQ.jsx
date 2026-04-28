@@ -1,14 +1,14 @@
 import { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ChevronDown, Phone, Mail } from 'lucide-react';
+import { ChevronDown, Phone, Mail, Globe, CreditCard, XCircle, FileText, HelpCircle, Users, Heart, CheckCircle } from 'lucide-react';
 import { faqs } from '../data/packagesData';
 import './FAQ.css';
 
 const tabs = [
-  { key: 'general', label: '🌍 General' },
-  { key: 'payment', label: '💳 Payment' },
-  { key: 'cancellation', label: '❌ Cancellation' },
-  { key: 'passport', label: '🛂 Passport & Visa' },
+  { key: 'general', label: 'General', icon: <Globe size={18} /> },
+  { key: 'payment', label: 'Payment', icon: <CreditCard size={18} /> },
+  { key: 'cancellation', label: 'Cancellation', icon: <XCircle size={18} /> },
+  { key: 'passport', label: 'Passport & Visa', icon: <FileText size={18} /> },
 ];
 
 const AccordionItem = ({ q, a, isOpen, toggle }) => (
@@ -43,8 +43,8 @@ const FAQ = () => {
     <div className="faq-page">
       <div className="faq-hero">
         <div className="container">
-          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }}>
-            <span className="page-icon">❓</span>
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7 }} style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}>
+            <HelpCircle size={48} color="var(--primary)" style={{ marginBottom: '1rem' }} />
             <h1 className="page-title">Frequently Asked Questions</h1>
             <p className="page-subtitle">Got questions? We've got answers. Find everything you need to plan your perfect trip.</p>
           </motion.div>
@@ -60,7 +60,9 @@ const FAQ = () => {
                 className={`faq-tab ${activeTab === tab.key ? 'active' : ''}`}
                 onClick={() => { setActiveTab(tab.key); setOpenIndex(0); }}
               >
-                {tab.label}
+                <span style={{ display: 'flex', alignItems: 'center', gap: '8px' }}>
+                  {tab.icon} {tab.label}
+                </span>
               </button>
             ))}
           </div>
@@ -99,29 +101,29 @@ const FAQ = () => {
         <div className="container">
           <div className="info-grid">
             <motion.div className="info-card" initial={{ opacity:0, x:-30 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:0.6 }}>
-              <div className="info-icon">👨‍👩‍👧‍👦</div>
+              <div className="info-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Users size={40} color="var(--primary)" /></div>
               <h3>Group Tours</h3>
               <p>Travel with friends, family, or colleagues! Our group tour packages are designed for maximum fun, comfort, and value. Groups of 10+ get special discounts.</p>
               <ul className="info-list">
-                <li>✅ Fixed departure dates</li>
-                <li>✅ Professional tour manager included</li>
-                <li>✅ Group discounts available</li>
-                <li>✅ Customizable for corporate groups</li>
-                <li>✅ Fun group activities planned</li>
+                <li><CheckCircle size={16} color="#22c55e" style={{ marginRight: '8px' }} /> Fixed departure dates</li>
+                <li><CheckCircle size={16} color="#22c55e" style={{ marginRight: '8px' }} /> Professional tour manager included</li>
+                <li><CheckCircle size={16} color="#22c55e" style={{ marginRight: '8px' }} /> Group discounts available</li>
+                <li><CheckCircle size={16} color="#22c55e" style={{ marginRight: '8px' }} /> Customizable for corporate groups</li>
+                <li><CheckCircle size={16} color="#22c55e" style={{ marginRight: '8px' }} /> Fun group activities planned</li>
               </ul>
               <a href="/contact" className="btn btn-primary mt-1">Enquire for Group Tour</a>
             </motion.div>
 
             <motion.div className="info-card" initial={{ opacity:0, x:30 }} whileInView={{ opacity:1, x:0 }} viewport={{ once:true }} transition={{ duration:0.6 }}>
-              <div className="info-icon">💑</div>
+              <div className="info-icon" style={{ display: 'flex', alignItems: 'center', justifyContent: 'center' }}><Heart size={40} color="var(--primary)" /></div>
               <h3>Honeymoon Packages</h3>
               <p>Make your first trip as a couple absolutely magical. Our honeymoon packages are crafted for romance, privacy, and unforgettable memories.</p>
               <ul className="info-list">
-                <li>✅ Romantic couple-friendly resorts</li>
-                <li>✅ Honeymoon suite with decorations</li>
-                <li>✅ Candle-light dinner arrangements</li>
-                <li>✅ Spa & wellness packages</li>
-                <li>✅ Private transfers & guided tours</li>
+                <li><CheckCircle size={16} color="#22c55e" style={{ marginRight: '8px' }} /> Romantic couple-friendly resorts</li>
+                <li><CheckCircle size={16} color="#22c55e" style={{ marginRight: '8px' }} /> Honeymoon suite with decorations</li>
+                <li><CheckCircle size={16} color="#22c55e" style={{ marginRight: '8px' }} /> Candle-light dinner arrangements</li>
+                <li><CheckCircle size={16} color="#22c55e" style={{ marginRight: '8px' }} /> Spa & wellness packages</li>
+                <li><CheckCircle size={16} color="#22c55e" style={{ marginRight: '8px' }} /> Private transfers & guided tours</li>
               </ul>
               <a href="/contact" className="btn btn-secondary mt-1">Plan Your Honeymoon</a>
             </motion.div>

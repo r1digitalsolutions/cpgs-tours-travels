@@ -42,11 +42,27 @@ const Hero = () => {
           
           <div className="divider"></div>
           
-          <div className="search-input-group">
+          <div 
+            className="search-input-group date-group"
+            onClick={() => {
+              const el = document.getElementById('trip-date');
+              if (el && el.showPicker) el.showPicker();
+            }}
+            style={{ cursor: 'pointer' }}
+          >
             <Calendar className="search-icon" />
             <div className="search-field">
-              <label>Date</label>
-              <input type="text" placeholder="Choose date" />
+              <label style={{ cursor: 'pointer' }}>Date</label>
+              <input 
+                id="trip-date"
+                type="date" 
+                onClick={(e) => {
+                  e.stopPropagation();
+                  if (e.target.showPicker) e.target.showPicker();
+                }}
+                onKeyDown={(e) => e.preventDefault()}
+                style={{ cursor: 'pointer' }}
+              />
             </div>
           </div>
 

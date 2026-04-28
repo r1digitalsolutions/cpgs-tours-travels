@@ -112,6 +112,19 @@
   color: rgba(255, 255, 255, 0.5);
 }
 
+.date-group {
+  position: relative;
+}
+
+.date-group input[type="date"] {
+  color-scheme: dark;
+}
+
+.date-group input[type="date"]::-webkit-calendar-picker-indicator {
+  display: none;
+  -webkit-appearance: none;
+}
+
 .divider {
   width: 1px;
   height: 40px;

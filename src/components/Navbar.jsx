@@ -39,7 +39,7 @@ const Navbar = () => {
             <button className="nav-link dropdown-trigger">Packages <ChevronDown size={14} /></button>
             <AnimatePresence>
               {packagesOpen && (
-                <motion.div className="dropdown glass" initial={{ opacity:0, y:8 }} animate={{ opacity:1, y:0 }} exit={{ opacity:0, y:8 }} transition={{ duration:0.2 }}>
+                <motion.div className="dropdown glass" initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: 8 }} transition={{ duration: 0.2 }}>
                   {packages.map((p, i) => (
                     <NavLink key={i} to={p.path} className="dropdown-item" onClick={() => setPackagesOpen(false)}>
                       <span className="dropdown-icon">{p.icon}</span> {p.name}
@@ -62,7 +62,7 @@ const Navbar = () => {
 
       <AnimatePresence>
         {mobileMenuOpen && (
-          <motion.div className="mobile-menu glass" initial={{ opacity:0, height:0 }} animate={{ opacity:1, height:'auto' }} exit={{ opacity:0, height:0 }}>
+          <motion.div className="mobile-menu glass" initial={{ opacity: 0, height: 0 }} animate={{ opacity: 1, height: 'auto' }} exit={{ opacity: 0, height: 0 }}>
             <NavLink to="/" className="mobile-link" onClick={closeMobile}>Home</NavLink>
             <NavLink to="/international" className="mobile-link" onClick={closeMobile}><Globe size={18} className="mobile-icon" /> International Packages</NavLink>
             <NavLink to="/domestic" className="mobile-link" onClick={closeMobile}><Map size={18} className="mobile-icon" /> Domestic Packages</NavLink>

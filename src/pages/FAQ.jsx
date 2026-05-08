@@ -86,10 +86,10 @@ const FAQ = () => {
           <h2>Still have questions?</h2>
           <p>Our travel experts are here to help you plan your perfect trip.</p>
           <div className="faq-contact-btns">
-            <a href="tel:+911234567890" className="btn btn-primary faq-contact-btn">
+            <a href="tel:+919443597272" className="btn btn-primary faq-contact-btn">
               <Phone size={18} /> Call Us Now
             </a>
-            <a href="mailto:info@cpgstours.com" className="btn faq-email-btn">
+            <a href="mailto:cpgstoursandtravels24@gmail.com" className="btn faq-email-btn">
               <Mail size={18} /> Email Us
             </a>
           </div>

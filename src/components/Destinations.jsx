@@ -1,29 +1,15 @@
 import { motion } from 'framer-motion';
 import { MapPin } from 'lucide-react';
+import { Link } from 'react-router-dom';
 import './Destinations.css';
 
 const destinations = [
-  {
-    id: 1,
-    title: 'Taj Mahal, India',
-    image: '/destination_1.png',
-    tours: '12 Tours',
-    price: 'From $499'
-  },
-  {
-    id: 2,
-    title: 'Himalayas, Nepal',
-    image: '/destination_2.png',
-    tours: '8 Tours',
-    price: 'From $899'
-  },
-  {
-    id: 3,
-    title: 'Kerala Backwaters',
-    image: '/destination_1.png', // Using placeholder
-    tours: '15 Tours',
-    price: 'From $399'
-  }
+  { id: 1, title: 'Rajasthan, India', image: '/destination_1.png', tours: '12 Tours', price: 'From ₹24,999', link: '/domestic' },
+  { id: 2, title: 'Dubai, UAE', image: '/destination_2.png', tours: '8 Tours', price: 'From ₹49,999', link: '/international' },
+  { id: 3, title: 'Kerala Backwaters', image: '/destination_1.png', tours: '15 Tours', price: 'From ₹19,999', link: '/domestic' },
+  { id: 4, title: 'Bali, Indonesia', image: '/destination_2.png', tours: '6 Tours', price: 'From ₹54,999', link: '/international' },
+  { id: 5, title: 'Char Dham, India', image: '/destination_1.png', tours: '10 Tours', price: 'From ₹34,999', link: '/spiritual' },
+  { id: 6, title: 'Kashmir, India', image: '/destination_2.png', tours: '9 Tours', price: 'From ₹29,999', link: '/domestic' },
 ];
 
 const Destinations = () => {
@@ -64,7 +50,7 @@ const Destinations = () => {
                   <span className="flex items-center gap-1 text-sm text-muted">
                     <MapPin size={16} /> {dest.tours}
                   </span>
-                  <button className="btn btn-secondary btn-sm">Explore</button>
+                  <Link to={dest.link} className="btn btn-secondary btn-sm">Explore</Link>
                 </div>
               </div>
             </motion.div>

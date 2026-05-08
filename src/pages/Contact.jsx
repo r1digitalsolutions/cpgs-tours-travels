@@ -34,16 +34,16 @@ const Contact = () => {
                 <div className="contact-card-icon"><Phone size={22} /></div>
                 <div>
                   <strong>Phone</strong>
-                  <p>+91 123 456 7890</p>
-                  <p>+91 987 654 3210</p>
+                  <p>+91 94435 97272</p>
+                  <p><a href="tel:+919443597272" style={{color:'var(--primary)'}}>Call Now</a></p>
                 </div>
               </div>
               <div className="contact-card">
                 <div className="contact-card-icon"><Mail size={22} /></div>
                 <div>
                   <strong>Email</strong>
-                  <p>info@cpgstours.com</p>
-                  <p>support@cpgstours.com</p>
+                  <p>cpgstoursandtravels24@gmail.com</p>
+                  <p><a href="mailto:cpgstoursandtravels24@gmail.com" style={{color:'var(--primary)'}}>Send Email</a></p>
                 </div>
               </div>
               <div className="contact-card">
